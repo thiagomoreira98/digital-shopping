@@ -1,0 +1,40 @@
+<form #form="ngForm">
+  <div class="c480">
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <button mat-icon-button [routerLink]="['/products']">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          {{ addingNew ? 'Cadastrar produto' : 'Alterar produto' }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <fieldset [disabled]="loading || saving || deleting">
+          <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="info.nome" name="nome" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="number" placeholder="Quantidade" [(ngModel)]="info.quantidade" name="quantidade" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Categorias" [(ngModel)]="info.idCategoria" name="idCategoria" required>
+              <mat-option *ngFor="let cat of categories" [value]="cat.id">
+                {{ cat.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </fieldset>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="fab-container">
+      <button mat-fab color="primary" (click)="onSubmit(form)">
+        <mat-icon>done</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

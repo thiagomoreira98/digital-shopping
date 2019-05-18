@@ -1,0 +1,12 @@
+<mat-progress-bar mode="indeterminate" *ngIf="saving"></mat-progress-bar>
+<form #form="ngForm">
+  <h1 mat-dialog-title>Adicionar ao Carrinho</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="quantidade" name="quantidade" placeholder="Quantidade" required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="save(form)">Ok</button>
+  </div>
+</form>

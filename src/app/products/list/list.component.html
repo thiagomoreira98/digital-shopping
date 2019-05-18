@@ -1,0 +1,63 @@
+<div class="c720">
+  <mat-form-field>
+    <input matInput (keyup)="getAll($event.target.value)" placeholder="Pesquisar">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let product"> {{product.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let product"> {{product.nomeCategoria }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let product"> {{product.quantidade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let product">
+          <button mat-icon-button [routerLink]="product.id">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="addToCart(product)" [disabled]="product.carrinho">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr [ngStyle]="{ 'background-color': row.carrinho ? 'red' : 'blue' }"
+        mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="fab-container" style="top: 180px;">
+    <button mat-fab color="primary" [routerLink]="['new']"
+      title="Cadastrar produto">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="accent" (click)="removeAll()" 
+      style="margin-left: 8px; margin-top: 5px;"
+      [disabled]="!dataSource.data.length"
+      title="Limpar lista de compras">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.c480 {
+    max-width: 480px;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.c720 {
+    max-width: 720px;
+    width: 100%;
+    margin: 40px auto;
+}
+
+fieldset {
+    border: none;
+}
+
+mat-form-field {
+    font-size: 16px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fab-container {
+    width: 60px;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+}
+
+.c480 .fab-container {
+    transition: all 280ms;
+    top: 120px;
+    bottom: 100%;
+    right: calc(50% - (480px / 2) - 79px);   
+}
+
+.c720 .fab-container {
+    transition: all 280ms;
+    top: 120px;
+    bottom: 100%;
+    right: calc(50% - (720px / 2) - 79px);   
+}

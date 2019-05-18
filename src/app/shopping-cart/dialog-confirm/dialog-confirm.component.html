@@ -1,0 +1,9 @@
+<mat-progress-bar mode="indeterminate" *ngIf="saving"></mat-progress-bar>
+<h1 mat-dialog-title>Deseja efetuar a compra?</h1>
+<div mat-dialog-content>
+  <p>Ao efetuar a compra todos os itens do carrinho serão limpados</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="buy()">Efetuar compra</button>
+  <button mat-button (click)="cancel()">Cancelar</button>
+</div>

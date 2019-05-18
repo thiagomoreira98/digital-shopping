@@ -8,6 +8,5 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-    width: 200px;
-    color: blue;
+    width: 250px;
 }
