@@ -36,6 +36,10 @@
           <button mat-icon-button (click)="addToCart(product)" [disabled]="product.carrinho">
             <mat-icon>add_shopping_cart</mat-icon>
           </button>
+
+          <button mat-icon-button (click)="removeById(product.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </ng-container>
 

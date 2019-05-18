@@ -26,4 +26,12 @@ export class ProductsService {
   update(product: any) {
     return this.http.put(`${environment.urlApi}/produtos/${product.id}`, product);
   }
+
+  removeById(id: number) {
+    return this.http.delete(`${environment.urlApi}/produtos/${id}`);
+  }
+
+  removeAll() {
+    return this.http.delete(`${environment.urlApi}/produtos`);
+  }
 }
