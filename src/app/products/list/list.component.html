@@ -29,23 +29,26 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let product">
-          <button mat-icon-button [routerLink]="product.id">
+          <button mat-icon-button [routerLink]="product.id"
+            matTooltip="Editar produto">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-icon-button (click)="addToCart(product)" [disabled]="product.carrinho">
+          <button mat-icon-button (click)="addToCart(product)"
+            matTooltip="{{ product.carrinho ? 'Produto ja adicionado ao carrinho' : 'Adicionar ao carrinho' }}"
+            [ngStyle]="{ 'color': product.carrinho ? 'lightgrey' : 'black' }">
             <mat-icon>add_shopping_cart</mat-icon>
           </button>
 
-          <button mat-icon-button (click)="removeById(product.id)">
+          <button mat-icon-button (click)="removeById(product.id)"
+            matTooltip="Remover produto">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr [ngStyle]="{ 'background-color': row.carrinho ? 'red' : 'blue' }"
-        mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
@@ -53,14 +56,15 @@
 
   <div class="fab-container" style="top: 180px;">
     <button mat-fab color="primary" [routerLink]="['new']"
-      title="Cadastrar produto">
+      matTooltip="Cadastrar produto">
       <mat-icon>add</mat-icon>
     </button>
 
-    <button mat-mini-fab color="accent" (click)="removeAll()" 
+    <button mat-mini-fab color="accent" 
+      (click)="removeAll()" 
       style="margin-left: 8px; margin-top: 5px;"
       [disabled]="!dataSource.data.length"
-      title="Limpar lista de compras">
+      matTooltip="Limpar lista de compras">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

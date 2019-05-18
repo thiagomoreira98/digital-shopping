@@ -19,7 +19,8 @@ import {
     MatOptionModule,
     MatProgressBarModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -42,7 +43,8 @@ import {
         MatOptionModule,
         MatProgressBarModule,
         MatDialogModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatTooltipModule
     ]
 })
 export class SharedModule {

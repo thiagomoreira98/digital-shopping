@@ -51,6 +51,12 @@ export class ProductsListComponent implements OnInit {
       return;
     }
 
+    if (product.carrinho) {
+      return this.snackbar.open('Produto ja foi adicionado no carrinho. Verifique!', 'Fechar', {
+        duration: 3000
+      });
+    }
+
     this.saving = true;
 
     this.cartService.addToCart(product.id).subscribe(() => {
@@ -69,7 +75,7 @@ export class ProductsListComponent implements OnInit {
 
   removeById(id: number) {
     this.service.removeById(id).subscribe((res: any) => {
-      this.dataSource = new MatTableDataSource([]);
+      this.dataSource = new MatTableDataSource(res.content);
       this.loading = false;
       this.snackbar.open('Removido com sucesso', 'Fechar', {
         duration: 3000
