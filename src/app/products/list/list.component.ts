@@ -76,12 +76,10 @@ export class ProductsListComponent implements OnInit {
   removeById(id: number) {
     this.service.removeById(id).subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.content);
-      this.loading = false;
       this.snackbar.open('Removido com sucesso', 'Fechar', {
         duration: 3000
       });
     }, (err) => {
-      this.loading = false;
       this.snackbar.open('Ocorreu um erro ao remover o produto', 'Fechar', {
         duration: 3000
       });
@@ -91,12 +89,10 @@ export class ProductsListComponent implements OnInit {
   removeAll() {
     this.service.removeAll().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource([]);
-      this.loading = false;
       this.snackbar.open('Removidos com sucesso', 'Fechar', {
         duration: 3000
       });
     }, (err) => {
-      this.loading = false;
       this.snackbar.open('Ocorreu um erro ao limpar a lista de compras', 'Fechar', {
         duration: 3000
       });

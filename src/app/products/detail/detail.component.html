@@ -11,7 +11,7 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <fieldset [disabled]="loading || saving || deleting">
+        <fieldset [disabled]="loading || saving">
           <mat-form-field>
             <input matInput placeholder="Nome" [(ngModel)]="info.nome" name="nome" required>
           </mat-form-field>

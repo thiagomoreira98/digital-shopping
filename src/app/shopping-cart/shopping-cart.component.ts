@@ -47,12 +47,10 @@ export class ShoppingCartComponent implements OnInit {
   removeById(id: number) {
     this.service.removeById(id).subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.content);
-      this.loading = false;
       this.snackbar.open('Removido com sucesso', 'Fechar', {
         duration: 3000
       });
     }, (err) => {
-      this.loading = false;
       this.snackbar.open('Ocorreu um erro ao remover o item do carrinho', 'Fechar', {
         duration: 3000
       });
@@ -62,12 +60,10 @@ export class ShoppingCartComponent implements OnInit {
   removeAll() {
     this.service.removeAll().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource([]);
-      this.loading = false;
       this.snackbar.open('Removidos com sucesso', 'Fechar', {
         duration: 3000
       });
     }, (err) => {
-      this.loading = false;
       this.snackbar.open('Ocorreu um erro ao limpar o carrinho', 'Fechar', {
         duration: 3000
       });
